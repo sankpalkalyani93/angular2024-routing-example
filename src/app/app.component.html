@@ -27,7 +27,7 @@
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/products">All Products</a>
                     </li>
-                    <li class="nav-item">
+                    <!--<li class="nav-item">
                         <a class="nav-link" routerLink="/products" [queryParams]="{category: 'cat1'}">Cat 1 Products</a>
                     </li>
                     <li class="nav-item">
@@ -35,6 +35,15 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/products" [queryParams]="{category: 'cat3'}">Cat 3 Products</a>
+                    </li>-->
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/products', 'cat1']">Cat 1 Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/products', 'cat2']">Cat 2 Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/products', 'cat3']">Cat 3 Products</a>
                     </li>
                 </ul>    
             </div>

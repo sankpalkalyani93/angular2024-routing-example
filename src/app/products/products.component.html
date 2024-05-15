@@ -3,6 +3,7 @@
     
     <div class="card-body">
         <h2 class="card-title">Products List</h2>
+        <p *ngIf="category"> Products in Category : {{category}}</p>
         <ul>
             <li *ngFor="let product of products"> 
             <p class="card=text"> Product Id : {{ product.id }} </p>
