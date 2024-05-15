@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
   <h2>{{ title }}</h2>
   <nav>
     <a routerLink="">Home</a> |
@@ -6,4 +6,55 @@
     <a routerLink="products">Products</a> 
   </nav>
 </div>
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->
+
+<p>home works!</p>
+<div class="container">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">My Angular App</a>
+            <button class="navbar-toggler" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" routerLink="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/aboutus">AboutUs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/products">All Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/products" [queryParams]="{category: 'cat1'}">Cat 1 Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/products" [queryParams]="{category: 'cat2'}">Cat 2 Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/products" [queryParams]="{category: 'cat3'}">Cat 3 Products</a>
+                    </li>
+                </ul>    
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <h1 class="display-4">Welcome To My Angular App</h1>
+            <p class="lead">This is simple routing application with bootstraping demo</p>
+            <hr class="my-4">
+            <p>Learn more about us.....</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn More</a>
+        </div>
+        <div class="container mt-4">
+          <router-outlet></router-outlet>
+        </div>
+    </main>
+
+    <footer class="mt-5 text-center">
+        <p>&copy; 2024 My Angular App </p>
+    </footer>
+</div>

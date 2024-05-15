@@ -1,12 +1,16 @@
 <p>products works!</p>
-<div>
-    <h2>Products List</h2>
-    <ul>
-        <li *ngFor="let product of products"> 
-        <p> Product Id : {{ product.id }} </p>
-        <p> Product Name : {{ product.name }} </p>
-        <p> Product Price : ${{ product.price }} </p>
-        <p> Product Description : {{ product.description }} </p>
-        </li>
-    </ul>
+<div class="card">
+    
+    <div class="card-body">
+        <h2 class="card-title">Products List</h2>
+        <ul>
+            <li *ngFor="let product of products"> 
+            <p class="card=text"> Product Id : {{ product.id }} </p>
+            <p class="card=text"> Product Name : {{ product.name }} </p>
+            <p class="card=text"> Product Price : ${{ product.price }} </p>
+            <p class="card=text"> Product Description : {{ product.description }} </p>
+            <button class="btn btn-primary">Add to Cart</button>
+            </li>
+        </ul>
+    </div>
 </div>

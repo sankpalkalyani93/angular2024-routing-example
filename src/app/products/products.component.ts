@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { Product } from './product';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -10,11 +11,11 @@ import { Product } from './product';
 export class ProductsComponent implements OnInit{
   
   products: Product[] = [];
-  
-  constructor(private productService: ProductService){}
+  categoryFilter: string | null = null;
+  constructor(private productService: ProductService, private route: ActivatedRoute){}
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe(
+    /*this.productService.getProducts().subscribe(
       (values) => {
         this.products = values;
       },
@@ -25,8 +26,43 @@ export class ProductsComponent implements OnInit{
         console.log("Process completed");
       }
 
-    );
+    );*/
   
+    this.route.queryParams.subscribe(
+      params => {
+        this.categoryFilter = params['category'];
+        this.fetchProducts();
+      }
+    );
+  }
+
+  fetchProducts(): void{
+    if(this.categoryFilter){
+      this.productService.getProductByCategory(this.categoryFilter).subscribe(
+        (products) => {
+          this.products = products;
+        },
+        (error) => {
+          console.log("error received : ", error);
+        },
+        () => {
+          console.log("process complete");
+        }
+      );
+
+    }else{
+      this.productService.getProducts().subscribe(
+        (products) => {
+          this.products = products;
+        },
+        (error) => {
+          console.log("error received", error);
+        },
+        () => {
+          console.log("process complete")
+        }
+      );
+    }
   }
 
 }
